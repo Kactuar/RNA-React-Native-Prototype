@@ -1,10 +1,11 @@
 import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
-
+import LogoTitle from 'rootSrc/components/logo-title/logo-title';
 
 export default class HomeScreen extends React.Component {
     static navigationOptions = {
         title: 'Home',
+        headerLeft: <LogoTitle />,
     };
 
     render() {

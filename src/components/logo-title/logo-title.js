@@ -6,7 +6,7 @@ export default class LogoTitle extends React.Component {
         return (
             <Image
                 source={require('./img/the-open-logo2.png')}
-                style={{ width: 76, height: 36, marginLeft: 10 }}
+                style={{ width: 76, height: 36 }}
             />
         );
     }
