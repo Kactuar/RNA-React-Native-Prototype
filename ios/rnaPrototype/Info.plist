@@ -70,6 +70,11 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>roboto-bold.ttf</string>
+		<string>roboto-light.ttf</string>
+		<string>roboto-regular.ttf</string>
+		<string>theopen-headline-bold.ttf</string>
+		<string>theopen-headline-regular.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -15,6 +15,7 @@ export default class HomeScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <Text style={styles.headLine}>Home Screen</Text>
                 <Text>Home Screen</Text>
                 <Text>---</Text>
                 <Button
@@ -46,5 +47,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#F5FCFF'
+    },
+    headLine: {
+        fontFamily: 'theopen-headline-bold'
     }
 });

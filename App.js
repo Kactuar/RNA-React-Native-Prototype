@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { createStackNavigator, createDrawerNavigator, createAppContainer } from "react-navigation";
 import HomeScreen from './src/screens/home-screen';
 import DetailsScreen from './src/screens/details-screen';
+import colors from './src/general/colors.js';
 
 
 
@@ -36,7 +37,7 @@ const MainStack = createStackNavigator(
                 />
             ),
             headerStyle: {
-                backgroundColor: '#1a1c3c',
+                backgroundColor: colors.purple,
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -54,6 +55,9 @@ const Drawer = createDrawerNavigator({
     Details: {
         screen: DetailsScreen,
     },
+
+}, {
+    drawerBackgroundColor: colors.mystic,
 });
 
 
