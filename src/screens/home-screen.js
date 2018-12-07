@@ -1,11 +1,15 @@
 import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 import LogoTitle from 'rootSrc/components/logo-title/logo-title';
+import Icon from 'react-native-vector-icons/Octicons';
 
 export default class HomeScreen extends React.Component {
-    static navigationOptions = {
-        title: 'Home',
-        headerLeft: <LogoTitle />,
+    static navigationOptions = (props) => {
+        console.log(props);
+        return {
+            headerTitle: <LogoTitle />,
+            headerLeft: <Icon name="three-bars" size={30} color="#ffffff" onPress={() => props.navigation.toggleDrawer()} />,
+        }
     };
 
     render() {
@@ -25,6 +29,11 @@ export default class HomeScreen extends React.Component {
                     onPress={() => this.props.navigation.navigate('Details', {
                         id: 2
                     })}
+                />
+                <Text>---</Text>
+                <Button
+                    title="Toggle Drawer"
+                    onPress={() => {this.props.navigation.toggleDrawer()}}
                 />
             </View>
         );

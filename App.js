@@ -1,14 +1,20 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { createStackNavigator, createDrawerNavigator, createAppContainer } from "react-navigation";
 import HomeScreen from './src/screens/home-screen';
 import DetailsScreen from './src/screens/details-screen';
 
 
-const AppNavigator = createStackNavigator(
+
+const MainStack = createStackNavigator(
     {
-        Home: HomeScreen,
-        Details: DetailsScreen
+        Home: {
+            screen: HomeScreen,
+        },
+        Details: {
+            screen: DetailsScreen,
+        }
     },
     {
         initialRouteName: "Home",
@@ -40,8 +46,18 @@ const AppNavigator = createStackNavigator(
     }
 );
 
+const Drawer = createDrawerNavigator({
+    Home: {
+        screen: MainStack
+    },
 
-const AppContainer = createAppContainer(AppNavigator);
+    Details: {
+        screen: DetailsScreen,
+    },
+});
+
+
+const AppContainer = createAppContainer(Drawer);
 
 export default class App extends React.Component {
     render() {

@@ -5,7 +5,8 @@ import { View, Text, Button,  StyleSheet } from "react-native";
 export default class DetailsScreen extends React.Component {
     static navigationOptions = ({ navigation }) => {
         return {
-            title: `Details ${navigation.getParam('id', 'NO-ID')}`
+            title: `Details ${navigation.getParam('id', 'NO-ID')}`,
+            drawerLabel: 'Details',
         };
     };
 
