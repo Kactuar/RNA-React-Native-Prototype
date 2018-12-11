@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBottomTabNavigator  } from 'react-navigation';
+import { createMaterialTopTabNavigator } from 'react-navigation';
 import StackTrack from './stack-track';
 import StackWatch from './stack-watch';
 import StackScore from './stack-score';
@@ -12,7 +12,7 @@ import colors from 'rootSrc/general/colors';
 
 
 
-const TabMain = createBottomTabNavigator(
+const TabMain = createMaterialTopTabNavigator(
     {
         Commentary: {
             screen: StackCommentary,
@@ -54,19 +54,24 @@ const TabMain = createBottomTabNavigator(
 
     },
     {
-        swipeEnabled: true,
+        swipeEnabled: false,
         animationEnabled: true,
+        tabBarPosition: 'bottom',
         tabBarOptions: {
-            position: 'bottom',
+            showIcon: true,
             activeTintColor: colors.yellow,
             inactiveTintColor: colors.frenchGrey,
+            indicatorStyle: {
+                backgroundColor: colors.yellow
+            },
             style: {
                 backgroundColor: colors.purple,
                 paddingBottom: 2,
                 paddingTop: 2
             },
             labelStyle: {
-                fontFamily: 'roboto-regular'
+                fontFamily: 'roboto-regular',
+                fontSize: 10
             }
         },
     }
