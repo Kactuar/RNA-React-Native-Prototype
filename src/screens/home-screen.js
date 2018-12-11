@@ -2,6 +2,9 @@ import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 import LogoTitle from 'rootSrc/components/logo-title/logo-title';
 import Icon from 'react-native-vector-icons/Octicons';
+import Svg, { Path, Circle } from 'react-native-svg';
+import IconScore from 'rootSrc/general/svg-components/icon-score';
+
 
 export default class HomeScreen extends React.Component {
     static navigationOptions = (props) => {
@@ -17,7 +20,10 @@ export default class HomeScreen extends React.Component {
             <View style={styles.container}>
                 <Text style={styles.headLine}>Home Screen</Text>
                 <Text>Home Screen</Text>
-                <Text>---</Text>
+                <IconScore width={17} height={14} fill="#aa11aa" />
+
+
+
                 <Button
                     title="Go to Details 1"
                     onPress={() => this.props.navigation.navigate('Details', {
