@@ -8,7 +8,7 @@ import IconScore from 'rootSrc/general/svg-components/icon-score';
 import IconComment from 'rootSrc/general/svg-components/icon-comment';
 import IconVideo from 'rootSrc/general/svg-components/icon-video';
 import IconPin from 'rootSrc/general/svg-components/icon-pin';
-import colors from 'rootSrc/general/colors';
+import colors from 'rootSrc/general/styles/colors';
 
 
 
