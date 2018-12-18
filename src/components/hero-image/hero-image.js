@@ -13,4 +13,6 @@ const HeroImage = ({uri}) => {
     );
 };
 
+
+
 export default HeroImage;

@@ -1,0 +1,22 @@
+{
+    "title": "Feed Title",
+    "list": [
+        {
+            "id": 1,
+            "type": "video",
+            "hasGradient": true,
+            "test": true,
+            "image": "https://2019portrush.theopen.com/-/media/images/homepage/image-gallery/henrik-stenson-2016.jpg?mw=720&hash=5685F801BD84233610686593451A8393F5D793A1",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id",
+            "title": "Excepteur sint occaecat"
+        },
+        {
+            "id": 2,
+            "type": "simple",
+            "hasGradient": false,
+            "image": "https://2019portrush.theopen.com/-/media/images/homepage/image-gallery/costantino-rocca-1995.jpg?mw=640&hash=E80C228E5F212031F231D64A28FC5F39A7155BB4",
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id",
+            "title": "Do eiusmod tempor incididunt ut labore"
+        }
+    ]
+}

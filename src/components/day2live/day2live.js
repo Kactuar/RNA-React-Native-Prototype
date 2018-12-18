@@ -3,26 +3,25 @@ import { Image, View, Text, FlatList, StyleSheet } from "react-native";
 import colors from 'rootSrc/general/styles/colors';
 import space from 'rootSrc/general/styles/space';
 
+const data = {
+    title: 'Day 2 live',
+    list: [
+        'Lorem ipsum dolor sit amet, conse',
+        'Lorem ipsum dolor sit amet, conse. Lorem ipsum dolor sit amet, conse',
+        'Ullamco laboris nisi ut aliquip ex ea commodo'
+    ]
+};
+
+const renderItem = ({item}) => {
+    return (
+        <View style={styles.item}>
+            <Text>{'\u2022'}</Text>
+            <Text style={styles.itemText}>{item}</Text>
+        </View>
+    );
+};
 
 const Day2Live = (props) => {
-
-    const data = {
-        title: 'Day 2 live',
-        list: [
-            'Lorem ipsum dolor sit amet, conse',
-            'Lorem ipsum dolor sit amet, conse. Lorem ipsum dolor sit amet, conse',
-            'Ullamco laboris nisi ut aliquip ex ea commodo'
-        ]
-    };
-
-    const renderItem = ({item}) => {
-        return (
-            <View style={styles.item}>
-                <Text>{'\u2022'}</Text>
-                <Text style={styles.itemText}>{item}</Text>
-            </View>
-        );
-    };
 
     return (
         <View style={[space.px15, space.py30, styles.container]}>
