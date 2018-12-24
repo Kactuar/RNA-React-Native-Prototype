@@ -4,7 +4,8 @@
         ["module-resolver", {
             "root": ["./src"],
             "alias": {
-                "rootSrc": "./src"
+                "rootSrc": "./src",
+                "assets": "./assets"
             }
         }]
     ]
