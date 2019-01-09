@@ -13,11 +13,18 @@ export default class FeedItem extends React.Component  {
     constructor(props) {
         super(props);
         this.onPress = this.onPress.bind(this);
+        this.state = {
+            paused: true
+        }
 
     }
 
     onPress() {
-        Alert('play')
+        this.setState((oldState)=> {
+            return {
+                paused: !oldState.paused
+            }
+        });
     }
 
     render() {
@@ -28,13 +35,23 @@ export default class FeedItem extends React.Component  {
         return (
             <Container>
                 <View style={styles.imageWrap}>
-                    <MainImage
-                        source={{uri: props.image}}
-                    />
+                    {!props.video &&
+                        <MainImage
+                            source={{uri: props.image}}
+                        />
+                    }
 
                     {props.video &&
                     <>
-                        <Video resizeMode="contain" paused={true} controls={true} style={styles.video}  source={require('assets/video/1.mp4')} />
+                        <Video
+                            poster={this.state.paused ? props.image : undefined}
+
+                            posterResizeMode="cover"
+                            resizeMode="contain"
+                            paused={this.state.paused}
+                            controls={true}
+                            style={styles.video}
+                            source={require('assets/video/1.mp4')} />
                         <VideoButton onPress={this.onPress}>
                             <IconTriangle style={styles.playIcon}  width={18} height={20} fill='#ffffff'/>
                         </VideoButton>
@@ -62,7 +79,7 @@ const Container = styled.View`
     `;
 
 const MainImage = styled.Image`
-        aspectRatio: ${3/2}
+        aspectRatio: ${16/9}
     `;
 
 const Caption = styled.View`
@@ -112,9 +129,16 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 0
     },
-    video: {
-        width: '100%',
+    imageWrap: {
         aspectRatio: 16/9
+
+    },
+    video: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
     }
 
 
