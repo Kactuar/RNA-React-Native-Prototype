@@ -4,6 +4,8 @@ import getDefaultHeaderOptions from 'rootSrc/navigation/default-header-options';
 import HeroImage from 'rootSrc/components/hero-image/hero-image';
 import Day2live from 'rootSrc/components/day2live/day2live';
 import FeedList from 'rootSrc/components/feed-list/feed-list';
+import FeedButtons from 'rootSrc/components/feed-buttons/feed-buttons';
+
 
 export default class CommentaryScreen extends React.Component {
     static navigationOptions = (props) => {
@@ -22,6 +24,7 @@ export default class CommentaryScreen extends React.Component {
             <ScrollView>
                 <HeroImage uri='https://2019portrush.theopen.com/-/media/images/homepage/image-gallery/146th-spieth.jpg?mw=960&hash=82EC9751F69EC10D3F9F6C9891104A035E0CA90A' />
                 <Day2live />
+                <FeedButtons />
                 <FeedList />
                 <Text>Commentary Screen</Text>
                 <Button

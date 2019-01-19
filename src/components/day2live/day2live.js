@@ -6,7 +6,7 @@ import space from 'rootSrc/general/styles/space';
 const data = {
     title: 'Day 2 live',
     list: [
-        'Lorem ipsum dolor sit amet, conse',
+        'Lorem ipsum dolor sit amet, conse1',
         'Lorem ipsum dolor sit amet, conse. Lorem ipsum dolor sit amet, conse',
         'Ullamco laboris nisi ut aliquip ex ea commodo'
     ]

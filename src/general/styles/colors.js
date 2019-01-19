@@ -5,7 +5,8 @@ const colors = {
     yellow: '#ffb500',
     frenchGrey: '#b8b8c2',
     bunting: '#0f0d3b',
-    mercury: '#ededed'
+    mercury: '#ededed',
+    white: '#ffffff'
 };
 
 export default colors;
