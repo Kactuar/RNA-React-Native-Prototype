@@ -25,7 +25,7 @@ class Cell extends React.Component {
 
     render() {
         return (
-            <Animated.View style={[{opacity: this.state.opacity}]}>
+            <Animated.View style={[{opacity: this.state.opacity}, space.mb15]}>
                 <FeedItem {...this.props} />
             </Animated.View>
         );
@@ -59,7 +59,7 @@ export default class FeedList extends React.Component {
             return {list: list.slice(0)};
           })
         ), 5000);
-    } 
+    }
 
     render() {
         return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, View, Text, TouchableOpacity, Alert, StyleSheet } from "react-native";
 import LinearGradient from 'react-native-linear-gradient';
-import Video from 'react-native-video';
+import VideoPlayer from 'react-native-video-controls'
 import styled, {css} from 'styled-components/native'
 import colors from 'rootSrc/general/styles/colors';
 import space from 'rootSrc/general/styles/space';
@@ -14,7 +14,8 @@ export default class FeedItem extends React.Component  {
         super(props);
         this.onPress = this.onPress.bind(this);
         this.state = {
-            paused: true
+            paused: true,
+            dirty: false
         }
 
     }
@@ -22,7 +23,8 @@ export default class FeedItem extends React.Component  {
     onPress() {
         this.setState((oldState)=> {
             return {
-                paused: !oldState.paused
+                paused: !oldState.paused,
+                dirty: true
             }
         });
     }
@@ -43,18 +45,20 @@ export default class FeedItem extends React.Component  {
 
                     {props.video &&
                     <>
-                        <Video
+                        <VideoPlayer
                             poster={this.state.paused ? props.image : undefined}
 
                             posterResizeMode="cover"
                             resizeMode="contain"
                             paused={this.state.paused}
-                            controls={true}
-                            style={styles.video}
+                            videoStyle={styles.video}
+                            showOnStart={false}
                             source={require('assets/video/1.mp4')} />
-                        <VideoButton onPress={this.onPress}>
-                            <IconTriangle style={styles.playIcon}  width={18} height={20} fill='#ffffff'/>
-                        </VideoButton>
+                        {!this.state.dirty &&
+                            <VideoButton onPress={this.onPress}>
+                                <IconTriangle style={styles.playIcon}  width={18} height={20} fill='#ffffff'/>
+                            </VideoButton>
+                        }
                     </>
                     }
                     {props.hasGradient &&
