@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, Button,  StyleSheet } from 'react-native';
+import { View, Text, Button,  StyleSheet, ScrollView } from 'react-native';
 import getDefaultHeaderOptions from 'rootSrc/navigation/default-header-options';
+import Score from 'rootSrc/components/score/score';
 
 
 export default class ScoreScreen extends React.Component {
@@ -17,14 +18,13 @@ export default class ScoreScreen extends React.Component {
 
 
         return (
-            <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-                <Text>Score Screen</Text>
+            <ScrollView>
+                <Score />
                 <Button
                     onPress={() => this.props.navigation.navigate("PlayerCard")}
                     title="Go To Player Card"
                 />
-
-            </View>
+            </ScrollView>
         );
     }
 }

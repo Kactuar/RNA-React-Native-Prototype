@@ -4,6 +4,7 @@ const colors = {
     mystic: '#eaf2f6',
     yellow: '#ffb500',
     frenchGrey: '#b8b8c2',
+    comet: '#52526c',
     bunting: '#0f0d3b',
     mercury: '#ededed',
     white: '#ffffff'
