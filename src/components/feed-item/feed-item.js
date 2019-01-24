@@ -31,8 +31,6 @@ export default class FeedItem extends React.Component  {
 
     render() {
         const props = this.props;
-        console.log(props);
-
 
         return (
             <Container>

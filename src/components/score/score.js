@@ -7,6 +7,8 @@ const scoreData = require('./score1.json');
 export default class Score extends React.Component {
     constructor(props) {
         super(props);
+
+
     }
 
     render() {
@@ -22,7 +24,11 @@ export default class Score extends React.Component {
                     <Text style={[styles.tableHeadText, styles.tableHeadTextCenter]}>TO PAR</Text>
                     <Text style={[styles.tableHeadText, styles.tableHeadTextCenter]}>HOLE</Text>
                 </View>
-                <ScoreLine />
+                <View style={styles.list}>
+                    <FlatList data={scoreData.players}
+                              renderItem={ScoreLine}
+                              keyExtractor={(item) => item.id.toString()} />
+                </View>
             </>
         )
     }
@@ -62,5 +68,8 @@ const styles = StyleSheet.create({
     },
     tableHeadTextGrow: {
         flex: 1
+    },
+    list: {
+        backgroundColor: colors.yellow,
     }
 });

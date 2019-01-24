@@ -1,14 +1,16 @@
 {
     "players": [
         {
+            "id": 1,
             "name": "Molinari",
             "surname": "F",
             "pos": "T1",
-            "country": "it",
+            "country": "es",
             "toPar": -6,
             "hole": 3
         },
         {
+            "id": 2,
             "name": "Rose",
             "surname": "J",
             "pos": "T2",
@@ -17,6 +19,7 @@
             "hole": 5
         },
         {
+            "id": 3,
             "name": "Kisner",
             "surname": "K",
             "pos": "T1",
@@ -25,6 +28,7 @@
             "hole": 8
         },
         {
+            "id": 4,
             "name": "Mickey",
             "surname": "M",
             "pos": "T2",
