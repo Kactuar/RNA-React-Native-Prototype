@@ -1,14 +1,14 @@
 import React from "react";
 import { View, Text, Button, TextInput,  StyleSheet } from "react-native";
-
+import { withNavigation } from 'react-navigation';
 import { Formik } from 'formik';
 import * as Yup from "yup";
+import formStyles from 'rootSrc/general/styles/form';
+import TextField from 'rootSrc/components/form-controls/text-field';
 
-export default class LoginForm extends React.Component {
+ class LoginForm extends React.Component {
 
-    getInputStyles(error, isTouched) {
-        return typeof error === 'string' && isTouched ? styles.invalidInput : styles.input
-    }
+
 
     render() {
 
@@ -29,32 +29,20 @@ export default class LoginForm extends React.Component {
                     {props => {
                         console.log(props);
                         return (
-                        <View style={styles.formContainer}>
-                            <View style={styles.fieldContainer}>
-                                <Text style={styles.label}>Email:</Text>
-                                <TextInput style={this.getInputStyles(props.errors.email, props.touched.email)}
-                                           onChangeText={props.handleChange('email')}
-                                           onBlur={props.handleBlur('email')}
-                                           value={props.values.email}
-                                />
-                                {props.errors.email && props.touched.email && (
-                                    <Text style={styles.fieldError}>{props.errors.email}</Text>
-                                )}
-                            </View>
-                            <View style={styles.fieldContainer}>
-                                <Text style={styles.label}>Password:</Text>
-                                <TextInput style={this.getInputStyles(props.errors.password, props.touched.password)}
-                                           onChangeText={props.handleChange('password')}
-                                           onBlur={props.handleBlur('password')}
-                                           value={props.values.password}
-                                           secureTextEntry={true}
-                                />
-                                {props.errors.password && props.touched.password && (
-                                    <Text style={styles.fieldError}>{props.errors.password}</Text>
-                                )}
+                        <View style={formStyles.formContainer}>
+                           
+                            <TextField {...props} valueName={'email'} label={'Email'} />
+                            <TextField {...props} valueName={'password'} label={'Password'} secureTextEntry={true}/>
 
+                            <View style={formStyles.fieldContainer}>
+                                <Button onPress={props.handleSubmit} title="Sign in" />
                             </View>
-                            <Button onPress={props.handleSubmit} title="Submit" />
+                            <View style={formStyles.fieldContainer}>
+                                <Button
+                                    onPress={() => this.props.navigation.navigate("Registration")}
+                                    title="Create an account"
+                                />
+                            </View>
                         </View>
                     )}}
                 </Formik>
@@ -64,29 +52,6 @@ export default class LoginForm extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
-    formContainer: {
-        width: '100%',
+export default withNavigation(LoginForm);
 
-    },
-    fieldContainer: {
-        paddingBottom: 10
-    },
-    label: {
-        paddingBottom: 5
-    },
-    fieldError: {
-        color: 'red',
-        paddingTop: 5
-    },
-    input: {
-        width: '100%',
-        height: 40,
-        borderWidth: 1,
-        borderColor: 'gray'
-    },
-    input_invalid: {
-        borderColor: 'red'
-    }
-});
-styles.invalidInput = StyleSheet.flatten([styles.input, styles.input_invalid]);
+

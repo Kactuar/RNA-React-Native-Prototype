@@ -2,6 +2,7 @@ import React from "react";
 import {View, Text, Button, TextInput, StyleSheet, ScrollView} from "react-native";
 import getDefaultHeaderOptions from 'rootSrc/navigation/default-header-options';
 import LoginForm from 'rootSrc/components/login-form/login-form';
+import { GlobalContextConsumer } from 'rootSrc/general/global-context'
 
 export default class ProfileScreen extends React.Component {
     static navigationOptions = (props) => {
@@ -18,14 +19,17 @@ export default class ProfileScreen extends React.Component {
 
         return (
             <ScrollView>
-                <View style={styles.container}>
-                    <LoginForm />
-                    <Text style={{marginTop: 20}}>Profile Screen</Text>
-                    <Button
-                        onPress={() => this.props.navigation.navigate("ProfileInner")}
-                        title="Go To Profile Inner"
-                    />
-                </View>
+                <GlobalContextConsumer>
+                    {(context) => (
+                    <View style={styles.container}>
+                        {!context.state.isLoggedIn && (
+                            <LoginForm />
+                        )}
+
+                        
+                    </View>
+                    )}
+                </GlobalContextConsumer>
             </ScrollView>
         );
     }
