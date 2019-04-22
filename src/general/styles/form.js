@@ -29,11 +29,9 @@ const formStyles = StyleSheet.create({
     },
     picker: {
         height: 40,
-        borderWidth: 1,
-        borderColor: 'gray',
     },
     picker_invalid: {
-        borderColor: 'red'
+        color: 'red'
     }
 });
 formStyles.invalidInput = StyleSheet.flatten([formStyles.input, formStyles.input_invalid]);

@@ -27,10 +27,9 @@ import TextField from 'rootSrc/components/form-controls/text-field';
                     })}
                 >
                     {props => {
-                        console.log(props);
                         return (
                         <View style={formStyles.formContainer}>
-                           
+
                             <TextField {...props} valueName={'email'} label={'Email'} />
                             <TextField {...props} valueName={'password'} label={'Password'} secureTextEntry={true}/>
 

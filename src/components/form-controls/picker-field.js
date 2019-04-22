@@ -7,9 +7,9 @@ const PickerField = (props) => {
     return (
         <View style={[formStyles.fieldContainer, props.fieldContainerStyles]}>
             <Picker
-                selectedValue={props.values.gender}
+                selectedValue={props.values[props.valueName]}
                 style={formStyles.picker}
-                onValueChange={props.handleChange('gender')}>
+                onValueChange={props.handleChange(props.valueName)}>
                 {props.options.map((option) => (<Picker.Item label={option.label} value={option.value} key={option.value} />))}
 
             </Picker>
