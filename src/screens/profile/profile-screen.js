@@ -27,7 +27,7 @@ export default class ProfileScreen extends React.Component {
                         )}
 
                         {context.state.isLoggedIn && (
-                            <Text>You are logged in </Text>
+                            <Text>Hi {context.state.userInfo.firstName}. You are logged in</Text>
                         )}
 
                         

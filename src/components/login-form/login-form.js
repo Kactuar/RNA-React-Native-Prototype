@@ -26,10 +26,14 @@ import { GlobalContextConsumer } from 'rootSrc/general/global-context'
      onFromSubmit(context, values) {
 
          this.setState({isLoading: true});
-         firebase.auth().signInWithEmailAndPassword(values.email, values.password).then((user)=> {
+         firebase.auth().signInWithEmailAndPassword(values.email, values.password).then((result)=> {
 
              this.setState({isLoading: false});
-             context.setGlobalContext({isLoggedIn: true});
+             context.setGlobalContext({
+                 isLoggedIn: true,
+                 userInfo: {
+                     firstName: result.user.displayName
+                 }});
          }).catch((error) => {
              console.log(error);
              const errorMessage = error.message;

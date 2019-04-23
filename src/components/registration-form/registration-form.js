@@ -27,9 +27,20 @@ class RegistrationForm extends React.Component {
     onFromSubmit(context, values) {
         console.log(values);
         this.setState({isLoading: true});
-        firebase.auth().createUserWithEmailAndPassword(values.email, values.password).then(()=> {
-            this.setState({isRegistrationDone: true, isLoading: false});
-            context.setGlobalContext({isLoggedIn: true});
+        firebase.auth().createUserWithEmailAndPassword(values.email, values.password).then((result)=> {
+            console.log(result);
+            result.user.updateProfile({
+                displayName: values.firstName
+            }).then(()=> {
+                this.setState({isRegistrationDone: true, isLoading: false});
+                context.setGlobalContext({
+                    isLoggedIn: true,
+                    userInfo: {
+                        firstName: values.firstName
+                    }
+                });
+            })
+
         }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;
