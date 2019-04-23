@@ -13,12 +13,8 @@ const AppContainer = createAppContainer(Drawer);
 
 export default class App extends React.Component {
     componentDidMount() {
-        console.log('componentDidMount');
+
         firebase.initializeApp(FIREBASE_CONFIG);
-        const authRef = firebase.auth();
-        console.log(authRef);
-
-
     }
 
     render() {
