@@ -1,8 +1,9 @@
 import React from "react";
-import {View, Text, Button, TextInput, StyleSheet, ScrollView} from "react-native";
+import {View, Text, Button, TextInput, StyleSheet, ScrollView, Image} from "react-native";
 import getDefaultHeaderOptions from 'rootSrc/navigation/default-header-options';
 import LoginForm from 'rootSrc/components/login-form/login-form';
 import { GlobalContextConsumer } from 'rootSrc/general/global-context'
+import spaces from 'rootSrc/general/styles/space';
 
 export default class ProfileScreen extends React.Component {
     static navigationOptions = (props) => {
@@ -27,7 +28,13 @@ export default class ProfileScreen extends React.Component {
                         )}
 
                         {context.state.isLoggedIn && (
-                            <Text>Hi {context.state.userInfo.firstName}. You are logged in</Text>
+                            <React.Fragment>
+                                <Text style={spaces.mb20}>Hi {context.state.userInfo.firstName}. You are logged in.</Text>
+                                <Image
+                                    source={{uri: context.state.userInfo.avatarUrl}}
+                                    style={{ width: 200, height: 200 }}
+                                />
+                            </React.Fragment>
                         )}
 
                         

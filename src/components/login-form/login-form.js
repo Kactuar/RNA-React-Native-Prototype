@@ -32,7 +32,8 @@ import { GlobalContextConsumer } from 'rootSrc/general/global-context'
              context.setGlobalContext({
                  isLoggedIn: true,
                  userInfo: {
-                     firstName: result.user.displayName
+                     firstName: result.user.displayName,
+                     avatarUrl: result.user.photoURL
                  }});
          }).catch((error) => {
              console.log(error);

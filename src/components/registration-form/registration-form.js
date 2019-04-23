@@ -10,7 +10,8 @@ import RegistrationThankYou from './registration-thank-you';
 import * as firebase from "firebase/app";
 import firebaseAuth from 'firebase/auth';
 import space from 'rootSrc/general/styles/space';
-import { GlobalContextConsumer } from 'rootSrc/general/global-context'
+import { GlobalContextConsumer } from 'rootSrc/general/global-context';
+import { getAvatarUtl } from 'rootSrc/general/helpers';
 
 class RegistrationForm extends React.Component {
 
@@ -29,14 +30,17 @@ class RegistrationForm extends React.Component {
         this.setState({isLoading: true});
         firebase.auth().createUserWithEmailAndPassword(values.email, values.password).then((result)=> {
             console.log(result);
+            const avatarUrl = getAvatarUtl(values.email);
             result.user.updateProfile({
-                displayName: values.firstName
+                displayName: values.firstName,
+                photoURL: avatarUrl
             }).then(()=> {
                 this.setState({isRegistrationDone: true, isLoading: false});
                 context.setGlobalContext({
                     isLoggedIn: true,
                     userInfo: {
-                        firstName: values.firstName
+                        firstName: values.firstName,
+                        avatarUrl
                     }
                 });
             })
