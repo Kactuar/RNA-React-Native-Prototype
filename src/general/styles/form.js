@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import colors from './colors';
 
 const formStyles = StyleSheet.create({
     formContainer: {
@@ -12,7 +13,7 @@ const formStyles = StyleSheet.create({
         paddingBottom: 5
     },
     fieldError: {
-        color: 'red',
+        color: colors.errorRed,
         paddingTop: 5
     },
     input: {
@@ -25,13 +26,24 @@ const formStyles = StyleSheet.create({
 
     },
     input_invalid: {
-        borderColor: 'red'
+        borderColor: colors.errorRed
     },
     picker: {
         height: 40,
     },
     picker_invalid: {
-        color: 'red'
+        color: colors.errorRed
+    },
+    formErrorContainer: {
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingTop: 10,
+        paddingBottom: 10,
+        borderLeftWidth: 4,
+        borderLeftColor: colors.errorRed
+    },
+    formErrorText: {
+        color: colors.errorRed
     }
 });
 formStyles.invalidInput = StyleSheet.flatten([formStyles.input, formStyles.input_invalid]);

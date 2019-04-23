@@ -7,6 +7,9 @@ import formStyles, { getInputStyles } from 'rootSrc/general/styles/form';
 import TextField from 'rootSrc/components/form-controls/text-field';
 import PickerField from 'rootSrc/components/form-controls/picker-field';
 import RegistrationThankYou from './registration-thank-you';
+import * as firebase from "firebase/app";
+import firebaseAuth from 'firebase/auth';
+import space from 'rootSrc/general/styles/space';
 
 class RegistrationForm extends React.Component {
 
@@ -14,14 +17,27 @@ class RegistrationForm extends React.Component {
         super(props);
         this.onFromSubmit = this.onFromSubmit.bind(this);
         this.state = {
-            isRegistrationDone: false
+            isRegistrationDone: false,
+            formErrorMessage: '',
+            isLoading: false
         }
 
     }
 
     onFromSubmit(values) {
         console.log(values);
-        this.setState({isRegistrationDone: true})
+        this.setState({isLoading: true});
+        firebase.auth().createUserWithEmailAndPassword(values.email, values.password).then(()=> {
+            this.setState({isRegistrationDone: true, isLoading: false})
+        }).catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(error);
+            this.setState({formErrorMessage: errorMessage, isLoading: false})
+        });
+
+
     }
 
 
@@ -87,9 +103,14 @@ class RegistrationForm extends React.Component {
                                     <TextField {...props} valueName={'password'} label={'Password'} secureTextEntry={true}/>
                                     <TextField {...props} valueName={'passwordConfirmation'} label={'Confirm Password'} secureTextEntry={true}/>
 
+                                    {this.state.formErrorMessage.length > 0 && (
+                                        <View style={[formStyles.formErrorContainer, space.mb10]}>
+                                            <Text style={formStyles.formErrorText}>{this.state.formErrorMessage}</Text>
+                                        </View>
+                                    )}
 
                                     <View style={formStyles.fieldContainer}>
-                                        <Button onPress={props.handleSubmit} title="Continue" />
+                                        <Button onPress={props.handleSubmit} title="Continue" disabled={this.state.isLoading}/>
                                     </View>
 
                                 </View>

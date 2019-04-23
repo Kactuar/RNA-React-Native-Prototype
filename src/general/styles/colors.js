@@ -7,7 +7,8 @@ const colors = {
     comet: '#52526c',
     bunting: '#0f0d3b',
     mercury: '#ededed',
-    white: '#ffffff'
+    white: '#ffffff',
+    errorRed: '#aa1111'
 };
 
 export default colors;

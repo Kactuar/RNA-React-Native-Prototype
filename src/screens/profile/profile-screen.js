@@ -23,7 +23,11 @@ export default class ProfileScreen extends React.Component {
                     {(context) => (
                     <View style={styles.container}>
                         {!context.state.isLoggedIn && (
-                            <LoginForm />
+                            <LoginForm  />
+                        )}
+
+                        {context.state.isLoggedIn && (
+                            <Text>You are logged in </Text>
                         )}
 
                         
